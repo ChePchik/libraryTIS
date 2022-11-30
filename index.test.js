@@ -22,3 +22,9 @@ it("ответ 200", (done) => {
 
 	done();
 });
+
+describe("Error", () => {
+	it("should return NotFound with status 404", function (done) {
+		request(server).get("/error").expect(404).expect("Cannot GET /error").end(done);
+	});
+});
