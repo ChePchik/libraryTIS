@@ -1,7 +1,24 @@
-describe("POST /todos", () => {
+const request = require("supertest");
+const { server } = require("./index");
+
+describe("/book", () => {
 	// 1
-	it("should create a new todo", (done) => {
-		let text = "Test todo text"; // 2
+	it("наш тест работает", (done) => {
 		done();
 	});
+});
+
+it("ответ 200", (done) => {
+	request(server) // 3
+		.get("/book")
+		.set("Accept", "application/json")
+		// .send({ text })
+		.expect(200)
+		.end((err, res) => {
+			if (err) {
+				return done(err);
+			}
+		});
+
+	done();
 });
